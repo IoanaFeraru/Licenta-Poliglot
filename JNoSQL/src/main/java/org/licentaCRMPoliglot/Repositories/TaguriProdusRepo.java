@@ -1,8 +1,8 @@
-package org.licentaCRMPoliglot.Repositories.Adresa;
+package org.licentaCRMPoliglot.Repositories;
 
 import jakarta.nosql.mapping.document.DocumentTemplate;
 import lombok.NoArgsConstructor;
-import org.licentaCRMPoliglot.Entities.ClientReferences.Adresa;
+import org.licentaCRMPoliglot.Entities.ProdusReferences.TaguriProdus;
 import org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -15,7 +15,7 @@ import java.util.Set;
 
 @NoArgsConstructor
 @ApplicationScoped
-public class AdresaRepo {
+public class TaguriProdusRepo {
 
     @Inject
     private DocumentTemplate template;
@@ -31,12 +31,12 @@ public class AdresaRepo {
         this.validator = factory.getValidator();
     }
 
-    public void save(Adresa adresa) {
-        Set<ConstraintViolation<Adresa>> violations = validator.validate(adresa);
+    public void save(TaguriProdus taguriProdus) {
+        Set<ConstraintViolation<TaguriProdus>> violations = validator.validate(taguriProdus);
         if (violations.isEmpty()) {
-            template.insert(adresa);
+            template.insert(taguriProdus);
         } else {
-            throw new IllegalArgumentException("Adresa validation failed: " + violations);
+            throw new IllegalArgumentException("TaguriProdus validation failed: " + violations);
         }
     }
 }

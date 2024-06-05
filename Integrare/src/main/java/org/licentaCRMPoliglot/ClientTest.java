@@ -9,9 +9,9 @@ import org.licentaCRMPoliglot.Entities.ClientReferences.Enums.Judet;
 import org.licentaCRMPoliglot.Entities.ClientReferences.WishList;
 import org.licentaCRMPoliglot.Entities.ClientReferences.WishListItem;
 import org.licentaCRMPoliglot.Repositories.ClientRepository;
-import org.licentaCRMPoliglot.Repositories.Adresa.AdresaRepo;
-import org.licentaCRMPoliglot.Repositories.TaguriClient.TaguriClientRepo;
-import org.licentaCRMPoliglot.Repositories.WishList.WishListRepo;
+import org.licentaCRMPoliglot.Repositories.AdresaRepo;
+import org.licentaCRMPoliglot.Repositories.TaguriClientRepo;
+import org.licentaCRMPoliglot.Repositories.WishListRepo;
 import org.licentaCRMPoliglot.Entities.Produs.*;
 import org.licentaCRMPoliglot.Repositories.ProdusRepository;
 

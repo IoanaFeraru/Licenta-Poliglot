@@ -1,4 +1,4 @@
-package org.licentaCRMPoliglot.Repositories.WishList;
+package org.licentaCRMPoliglot.Repositories;
 
 import jakarta.nosql.mapping.document.DocumentTemplate;
 import lombok.NoArgsConstructor;

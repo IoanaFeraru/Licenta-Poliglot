@@ -3,7 +3,7 @@ package org.licentaCRMPoliglot;
 import org.licentaCRMPoliglot.Entities.Produs.Produs;
 import org.licentaCRMPoliglot.Entities.ProdusReferences.TaguriProdus;
 import org.licentaCRMPoliglot.Repositories.ProdusRepository;
-import org.licentaCRMPoliglot.Repositories.TaguriProdus.TaguriProdusRepo;
+import org.licentaCRMPoliglot.Repositories.TaguriProdusRepo;
 import org.licentaCRMPoliglot.Entities.Produs.StatusProdus;
 
 import javax.enterprise.inject.se.SeContainer;

@@ -7,7 +7,7 @@ import org.licentaCRMPoliglot.Entities.Comunicare.Enums.Status;
 import org.licentaCRMPoliglot.Entities.Client.Client;
 import org.licentaCRMPoliglot.Repositories.CampanieRepository;
 import org.licentaCRMPoliglot.Repositories.ClientRepository;
-import org.licentaCRMPoliglot.Repositories.Comunicare.ComunicareRepo;
+import org.licentaCRMPoliglot.Repositories.ComunicareRepo;
 
 import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;

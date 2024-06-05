@@ -1,5 +1,6 @@
-package org.licentaCRMPoliglot.Repositories.Feedback;
+package org.licentaCRMPoliglot.Repositories;
 
+import jakarta.nosql.document.DocumentQuery;
 import jakarta.nosql.mapping.document.DocumentTemplate;
 import lombok.NoArgsConstructor;
 import org.licentaCRMPoliglot.Entities.ClientReferences.Feedback;
@@ -11,7 +12,9 @@ import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
+import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @NoArgsConstructor
 @ApplicationScoped
@@ -38,5 +41,21 @@ public class FeedbackRepo {
         } else {
             throw new IllegalArgumentException("Feedback validation failed: " + violations);
         }
+    }
+
+    public List<Feedback> findAll() {
+        DocumentQuery query = DocumentQuery.select().from("Feedback").build();
+        return template.select(query)
+                .map(document -> (Feedback) document)
+                .collect(Collectors.toList());
+    }
+
+    public List<Feedback> findByCodProdus(String codProdus) {
+        DocumentQuery query = DocumentQuery.select().from("Feedback")
+                .where("feedbackItems.codProdus").eq(codProdus)
+                .build();
+        return template.select(query)
+                .map(document -> (Feedback) document)
+                .collect(Collectors.toList());
     }
 }

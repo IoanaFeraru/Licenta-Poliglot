@@ -1,8 +1,8 @@
-package org.licentaCRMPoliglot.Repositories.Achizitie;
+package org.licentaCRMPoliglot.Repositories;
 
 import jakarta.nosql.mapping.document.DocumentTemplate;
 import lombok.NoArgsConstructor;
-import org.licentaCRMPoliglot.Entities.Achizitie.Achizitie;
+import org.licentaCRMPoliglot.Entities.ClientReferences.TaguriClient;
 import org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -15,7 +15,7 @@ import java.util.Set;
 
 @NoArgsConstructor
 @ApplicationScoped
-public class AchizitieRepo {
+public class TaguriClientRepo {
 
     @Inject
     private DocumentTemplate template;
@@ -31,12 +31,12 @@ public class AchizitieRepo {
         this.validator = factory.getValidator();
     }
 
-    public void save(Achizitie achizitie) {
-        Set<ConstraintViolation<Achizitie>> violations = validator.validate(achizitie);
+    public void save(TaguriClient taguriClient) {
+        Set<ConstraintViolation<TaguriClient>> violations = validator.validate(taguriClient);
         if (violations.isEmpty()) {
-            template.insert(achizitie);
+            template.insert(taguriClient);
         } else {
-            throw new IllegalArgumentException("Achizitie validation failed: " + violations);
+            throw new IllegalArgumentException("TaguriClient validation failed: " + violations);
         }
     }
 }

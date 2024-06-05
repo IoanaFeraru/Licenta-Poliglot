@@ -1,4 +1,4 @@
-package org.licentaCRMPoliglot.Repositories.IstoricPuncte;
+package org.licentaCRMPoliglot.Repositories;
 
 import jakarta.nosql.mapping.document.DocumentTemplate;
 import lombok.NoArgsConstructor;
@@ -34,10 +34,15 @@ public class IstoricPuncteRepo {
     public void save(IstoricPuncte istoricPuncte) {
         Set<ConstraintViolation<IstoricPuncte>> violations = validator.validate(istoricPuncte);
         if (violations.isEmpty()) {
-            template.insert(istoricPuncte);
+            IstoricPuncte existingIstoric = template.find(IstoricPuncte.class, istoricPuncte.getCodClient()).orElse(null);
+            if (existingIstoric != null) {
+                existingIstoric.getPuncteEntries().addAll(istoricPuncte.getPuncteEntries());
+                template.update(existingIstoric);
+            } else {
+                template.insert(istoricPuncte);
+            }
         } else {
             throw new IllegalArgumentException("IstoricPuncte validation failed: " + violations);
         }
     }
 }
-
