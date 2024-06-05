@@ -1,7 +1,7 @@
 package org.licentaCRMPoliglot.Entities.Comunicare;
 
 import jakarta.nosql.mapping.Column;
-import jakarta.nosql.mapping.Embeddable;
+import jakarta.nosql.mapping.Id;
 import lombok.Getter;
 import lombok.Setter;
 import org.licentaCRMPoliglot.Entities.Comunicare.Enums.Metoda;
@@ -14,8 +14,11 @@ import java.util.List;
 @Setter
 public class Comunicare {
 
-    @Column
+    @Id
     private int codComunicare;
+
+    @Column
+    private int codCampanie;
 
     @Column
     private String scop;
@@ -29,5 +32,5 @@ public class Comunicare {
     private Metoda metoda;
 
     @Column
-    private List<String> CoduriCLienti;
+    private List<String> coduriCLienti;
 }
