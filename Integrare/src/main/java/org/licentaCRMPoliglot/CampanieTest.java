@@ -10,8 +10,8 @@ import java.util.List;
 import java.util.Random;
 
 public class CampanieTest {
-    private CampanieRepository campanieRepository;
-    private OfertaRepository ofertaRepository;
+    private final CampanieRepository campanieRepository;
+    private final OfertaRepository ofertaRepository;
 
     public CampanieTest() {
         this.campanieRepository = new CampanieRepository();
@@ -47,11 +47,11 @@ public class CampanieTest {
     }
 
     private Oferta selectRandomOferta() {
-        List<Oferta> allOfertas = ofertaRepository.findAll();
-        if (allOfertas.isEmpty()) {
-            throw new IllegalStateException("No offers available in the database.");
+        List<Oferta> allOferte = ofertaRepository.findAll();
+        if (allOferte.isEmpty()) {
+            throw new IllegalStateException("No offers available.");
         }
-        return allOfertas.get(new Random().nextInt(allOfertas.size()));
+        return allOferte.get(new Random().nextInt(allOferte.size()));
     }
 
     public void closeEm() {

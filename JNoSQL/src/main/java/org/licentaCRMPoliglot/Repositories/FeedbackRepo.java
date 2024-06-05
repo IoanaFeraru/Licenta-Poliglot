@@ -43,13 +43,6 @@ public class FeedbackRepo {
         }
     }
 
-    public List<Feedback> findAll() {
-        DocumentQuery query = DocumentQuery.select().from("Feedback").build();
-        return template.select(query)
-                .map(document -> (Feedback) document)
-                .collect(Collectors.toList());
-    }
-
     public List<Feedback> findByCodProdus(String codProdus) {
         DocumentQuery query = DocumentQuery.select().from("Feedback")
                 .where("feedbackItems.codProdus").eq(codProdus)

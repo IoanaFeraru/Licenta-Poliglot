@@ -17,7 +17,6 @@ import javax.enterprise.inject.se.SeContainerInitializer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.util.stream.Collectors;
 
 public class AddFeedbackTest {
 
@@ -47,7 +46,7 @@ public class AddFeedbackTest {
                     .flatMap(achizitie -> achizitie.getLinieAchizitie().stream())
                     .map(LinieAchizitie::getCodProdus)
                     .distinct()
-                    .collect(Collectors.toList());
+                    .toList();
 
             Feedback feedback = new Feedback();
             feedback.setCodClient(client.getCodclient());

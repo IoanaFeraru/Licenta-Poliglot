@@ -1,6 +1,5 @@
 package org.licentaCRMPoliglot;
 
-import jakarta.nosql.mapping.document.DocumentTemplate;
 import org.licentaCRMPoliglot.Entities.Achizitie.Achizitie;
 import org.licentaCRMPoliglot.Entities.Achizitie.LinieAchizitie;
 import org.licentaCRMPoliglot.Entities.Client.Client;
@@ -25,7 +24,6 @@ import java.util.stream.IntStream;
 public class AchizitieTest {
     public static void main(String[] args) {
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
-            DocumentTemplate template = container.select(DocumentTemplate.class).get();
             ProdusRepository produsRepository = new ProdusRepository();
             OfertaRepository ofertaRepository = new OfertaRepository();
             AchizitieRepo achizitieRepo = container.select(AchizitieRepo.class).get();
