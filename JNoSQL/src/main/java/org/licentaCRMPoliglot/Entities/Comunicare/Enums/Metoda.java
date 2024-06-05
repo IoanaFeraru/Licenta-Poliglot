@@ -1,4 +1,4 @@
-package org.licentaCRMPoliglot.Comunicare.Enums;
+package org.licentaCRMPoliglot.Entities.Comunicare.Enums;
 
 public enum Metoda {
     EMAIL,

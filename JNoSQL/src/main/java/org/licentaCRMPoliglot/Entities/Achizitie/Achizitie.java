@@ -1,4 +1,4 @@
-package org.licentaCRMPoliglot.Achizitie;
+package org.licentaCRMPoliglot.Entities.Achizitie;
 
 import jakarta.nosql.mapping.Column;
 import jakarta.nosql.mapping.Entity;

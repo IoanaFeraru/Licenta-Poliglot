@@ -1,8 +1,10 @@
-package org.licentaCRMPoliglot.Entities;
+package org.licentaCRMPoliglot.Entities.Oferta;
 
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.licentaCRMPoliglot.Entities.Campanie.Campanie;
+import org.licentaCRMPoliglot.Entities.Produs.Produs;
 import org.licentaCRMPoliglot.MetaModels.AbstractEntity;
 
 import java.util.LinkedHashSet;
@@ -35,7 +37,7 @@ public class Oferta extends AbstractEntity {
     private Integer costpuncte=0;
 
     @OneToMany(mappedBy = "codoferta")
-    private Set<Campanie> campanies = new LinkedHashSet<>();
+    private Set<Campanie> campanii = new LinkedHashSet<>();
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "codprodus")

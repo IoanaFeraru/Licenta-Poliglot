@@ -1,4 +1,4 @@
-package org.licentaCRMPoliglot.Entities.ClientReferences;
+package org.licentaCRMPoliglot.Entities.ProdusReferences;
 
 import jakarta.nosql.mapping.Column;
 import jakarta.nosql.mapping.Entity;
@@ -11,9 +11,9 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-public class TaguriClient {
+public class TaguriProdus {
     @Id
-    private String codclient;
+    private String codProdus;
 
     @Column("Tag-uri")
     private List<String> tagUri;

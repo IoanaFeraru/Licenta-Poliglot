@@ -1,4 +1,4 @@
-package org.licentaCRMPoliglot.Repositories;
+package org.licentaCRMPoliglot.Repositories.Achizitie;
 
 import jakarta.nosql.mapping.Param;
 import jakarta.nosql.mapping.Query;

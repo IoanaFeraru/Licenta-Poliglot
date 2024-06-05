@@ -1,7 +1,8 @@
-package org.licenta2024JNoSQL.Utilities;
+package org.licentaCRMPoliglot;
 
 import jakarta.nosql.document.DocumentCollectionManager;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
+
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Disposes;
 import javax.enterprise.inject.Produces;

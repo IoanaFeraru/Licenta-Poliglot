@@ -1,28 +1,23 @@
 package org.licentaCRMPoliglot.Entities.ClientReferences;
 
 import jakarta.nosql.mapping.Column;
-import jakarta.nosql.mapping.Entity;
-import jakarta.nosql.mapping.Id;
+import jakarta.nosql.mapping.Embeddable;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import java.util.Date;
 
 @Getter
 @Setter
-@Entity
-public class Feedback {
-    @Id
-    String codClient;
-
+@Embeddable
+public class WishListItem {
     @Column
     @NotBlank
     private String codProdus;
 
     @Column
-    @Min(0)
-    @Max(5)
-    private int rating;
+    @NotNull
+    private Date dataAdaugare;
 }

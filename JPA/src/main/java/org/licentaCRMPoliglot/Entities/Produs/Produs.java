@@ -1,12 +1,9 @@
-package org.licentaCRMPoliglot.Entities;
+package org.licentaCRMPoliglot.Entities.Produs;
 
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import org.licentaCRMPoliglot.MetaModels.AbstractEntity;
-
-import java.util.LinkedHashSet;
-import java.util.Set;
 
 @Getter
 @Setter
@@ -23,15 +20,12 @@ public class Produs extends AbstractEntity {
     @Column(name = "rating", nullable = false)
     private Double rating;
 
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     @Column(name = "status", nullable = false)
     private StatusProdus statusProdus;
 
     @Column(name = "pret", nullable = false)
     private Double pret;
-
-    @OneToMany(mappedBy = "codclient")
-    private Set<Oferta> oferte = new LinkedHashSet<>();
 
     @Override
     public Object getId() {

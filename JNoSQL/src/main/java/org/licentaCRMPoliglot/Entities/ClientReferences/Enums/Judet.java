@@ -1,4 +1,4 @@
-package org.licentaCRMPoliglot.ClientReferences.Enums;
+package org.licentaCRMPoliglot.Entities.ClientReferences.Enums;
 
 public enum Judet {
     ALBA,

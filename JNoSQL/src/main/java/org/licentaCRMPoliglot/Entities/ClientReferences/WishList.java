@@ -1,28 +1,24 @@
-package org.licentaCRMPoliglot.ClientReferences;
+package org.licentaCRMPoliglot.Entities.ClientReferences;
 
 import jakarta.nosql.mapping.Column;
-import jakarta.nosql.mapping.Embeddable;
 import jakarta.nosql.mapping.Entity;
 import jakarta.nosql.mapping.Id;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.validation.constraints.NotBlank;
+import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
-import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter
 @Entity
 public class WishList {
     @Id
-    String codClient;
+    private String codClient;
 
     @Column
-    @NotBlank
-    private String codProdus;
-
-    @Column
+    @Valid
     @NotNull
-    private Date dataAdaugare;
+    private List<WishListItem> wishListItems;
 }

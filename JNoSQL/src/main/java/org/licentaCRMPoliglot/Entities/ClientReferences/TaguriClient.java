@@ -1,4 +1,4 @@
-package org.licentaCRMPoliglot.ClientReferences;
+package org.licentaCRMPoliglot.Entities.ClientReferences;
 
 import jakarta.nosql.mapping.Column;
 import jakarta.nosql.mapping.Entity;

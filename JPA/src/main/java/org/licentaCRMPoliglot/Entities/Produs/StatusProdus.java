@@ -1,4 +1,4 @@
-package org.licentaCRMPoliglot.Entities;
+package org.licentaCRMPoliglot.Entities.Produs;
 
 public enum StatusProdus {
     INSTOCK,
