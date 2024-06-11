@@ -76,35 +76,35 @@ public class AchizitieUtil {
     }
 
     public static void updatePuncteClient(Achizitie achizitie, ClientRepository clientRepository, IstoricPuncteRepo istoricPuncteRepo) {
-        String codClient = achizitie.getCodClient();
-        Client optionalClient = clientRepository.findById(codClient);
+    String codClient = achizitie.getCodClient();
+    Client optionalClient = clientRepository.findById(codClient);
 
-        if (optionalClient != null) {
-            Client client = optionalClient;
-            int newPuncteLoialitate = client.getPuncteloialitate() + Integer.parseInt(achizitie.getValoarePuncte());
-            client.setPuncteloialitate(newPuncteLoialitate);
+    if (optionalClient != null) {
+        Client client = optionalClient;
+        int newPuncteLoialitate = client.getPuncteloialitate() + Integer.parseInt(achizitie.getValoarePuncte());
+        client.setPuncteloialitate(newPuncteLoialitate);
 
-            PuncteEntry entry = new PuncteEntry();
-            entry.setCodAchizitie(achizitie.getCodAchizitie());
-            entry.setValoarePuncte(Integer.parseInt(achizitie.getValoarePuncte()));
-            entry.setDataProcesare(new Date());
+        PuncteEntry entry = new PuncteEntry();
+        entry.setCodAchizitie(achizitie.getCodAchizitie());
+        entry.setValoarePuncte(Integer.parseInt(achizitie.getValoarePuncte()));
+        entry.setDataProcesare(new Date());
 
-            IstoricPuncte istoricPuncte = new IstoricPuncte();
+        IstoricPuncte istoricPuncte = istoricPuncteRepo.findByCodClient(codClient);
+        if (istoricPuncte != null) { istoricPuncte.getPuncteEntries().add(entry);} 
+        else {
+            istoricPuncte = new IstoricPuncte();
             istoricPuncte.setCodClient(codClient);
             istoricPuncte.setPuncteEntries(new ArrayList<>());
             istoricPuncte.getPuncteEntries().add(entry);
-
-            istoricPuncteRepo.save(istoricPuncte);
-            clientRepository.updateClient(client);
-            try {
-                clientRepository.updateClient(client);
-                istoricPuncteRepo.save(istoricPuncte);
-                System.out.println("Updated client points and saved history for client: " + client.getCodclient());
-            } catch (IllegalArgumentException e) {
-                System.out.println("Failed to update client points or save history: " + e.getMessage());
-            }
-        } else {
-            System.out.println("Client not found with ID: " + codClient);
         }
+        try {
+            clientRepository.updateClient(client);
+            istoricPuncteRepo.save(istoricPuncte);
+            System.out.println("Updated client points and saved history for client: " + client.getCodclient());
+        } catch (IllegalArgumentException e) {
+            System.out.println("Failed to update client points or save history: " + e.getMessage());
+        }
+    } else {
+        System.out.println("Client not found with ID: " + codClient);
     }
 }
